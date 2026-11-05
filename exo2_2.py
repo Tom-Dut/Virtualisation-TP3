@@ -17,10 +17,10 @@ def pause():
     time.sleep(PAUSE)
 
 
-# Récupération du dossier dans lequel se trouve ce script
+# Récupération du dossier
 DOSSIER_SCRIPT = os.path.dirname(os.path.abspath(__file__))
 
-# Création du chemin vers notre page HTML locale
+# Création du chemin vers notre page HTML 
 FICHIER_HTML = os.path.join(
     DOSSIER_SCRIPT,
     "inscription.html"
