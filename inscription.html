@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription</title>
+</head>
+
+<body>
+
+<h1>Formulaire d'inscription</h1>
+
+<form id="formulaire" novalidate>
+
+    <label for="nom">Nom :</label>
+    <input id="nom" type="text">
+
+    <br><br>
+
+    <label for="email">Email :</label>
+    <input id="email" type="text">
+
+    <br><br>
+
+    <label for="password">Mot de passe :</label>
+    <input id="password" type="password">
+
+    <br><br>
+
+    <button id="inscription" type="submit">
+        S'inscrire
+    </button>
+
+</form>
+
+<p id="message"></p>
+
+<script>
+
+const formulaire = document.getElementById("formulaire");
+const message = document.getElementById("message");
+
+formulaire.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const nom = document.getElementById("nom").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (nom === "" || email === "" || password === "") {
+        message.textContent = "Erreur : champ obligatoire manquant";
+        return;
+    }
+
+    if (!email.includes("@") || !email.includes(".")) {
+        message.textContent = "Erreur : email invalide";
+        return;
+    }
+
+    if (password.length < 8) {
+        message.textContent = "Erreur : mot de passe trop court";
+        return;
+    }
+
+    message.textContent = "Inscription réussie";
+});
+
+</script>
+
+</body>
+</html>
